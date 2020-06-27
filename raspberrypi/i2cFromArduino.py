@@ -10,9 +10,9 @@ while 1:
         with SMBusWrapper(1) as bus:
             data = bus.read_i2c_block_data(address, 99, 2)
             sensorValue = data[0] * 256 + data[1]
-            file_object = open('~/data/data.txt', 'a')
-            file_object.write(sensorValue)
+            file_object = open('/home/pi/data/data.txt', 'a')
+            file_object.write(str(sensorValue) + '\n')
             file_object.close()
-    except:
-        print('Oops! Error')
-    sleep(60)
+    except Exception as e:
+        print(e)
+    sleep(5)
