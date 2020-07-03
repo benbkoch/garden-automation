@@ -65,8 +65,7 @@ def customShadowCallback_Update(payload, responseStatus, token):
         payloadDict = json.loads(payload)
         print("~~~~~~~~~~~~~~~~~~~~~~~")
         print("Update request with token: " + token + " accepted!")
-        print("moisture: " + str(payloadDict["state"]["reported"]["moisture"]))
-        print("temperature: " + str(payloadDict["state"]["reported"]["temp"]))
+        print("moisture: " + str(payloadDict["state"]["reported"]["moisturePercentage"]))
         print("~~~~~~~~~~~~~~~~~~~~~~~\n\n")
 
     if responseStatus == "rejected":
