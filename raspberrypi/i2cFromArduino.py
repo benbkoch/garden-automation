@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from time import sleep
+import time
 from smbus2 import SMBusWrapper
 address = 0x8
 
@@ -14,7 +15,8 @@ def readIntFromI2C():
 def writeValuesToFile(values, filename):
     file_object = open(filename, 'a')
     strings = [str(value) for value in values]
-    file_object.write(",".join(strings) + '\n')
+    timestamp = str(time.time())
+    file_object.write(timestamp + "," + ",".join(strings) + '\n')
     file_object.close()
 
 def waterSensorRawToPercentage(value):
